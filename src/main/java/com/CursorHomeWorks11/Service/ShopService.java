@@ -31,9 +31,11 @@ public class ShopService {
         shopRepository.save(shop);
     }
 
-    public Object findByShopId(long id) {
+    public Shop findByShopId(long id) {
         return shopRepository.findById(id)
-                .orElseThrow(null);
+                .orElseThrow(() -> new ShopNotFoundException("Shop not found"));
+//        return shopRepository.findById(id)
+//                .orElseThrow(null);
     }
 
     public void deleteShop(Long id) {

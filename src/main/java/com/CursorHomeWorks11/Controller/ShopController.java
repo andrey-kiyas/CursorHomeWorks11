@@ -54,7 +54,7 @@ public class ShopController {
     @GetMapping("/findById/{id}")
     public String getShop(@PathVariable Long id) {
         try {
-            Object shopFind = shopService.findByShopId(id);
+            Shop shopFind = shopService.findByShopId(id);
             return "Found: " + shopFind;
         } catch (ShopNotFoundException exception) {
             return "Shop \"id=" + id + "\" no found";
@@ -64,7 +64,7 @@ public class ShopController {
     @DeleteMapping("/delete/{id}")
     public String deleteShops(@PathVariable Long id) {
         try {
-            Object shopDelete = shopService.findByShopId(id);
+            Shop shopDelete = shopService.findByShopId(id);
             shopService.deleteShop(id);
             return "Deleted: " + shopDelete;
         } catch (ShopNotFoundException exception) {
@@ -75,7 +75,7 @@ public class ShopController {
     @PatchMapping("/update/{id}")
     public Object updateShop(@PathVariable("id") Long id, @RequestBody Shop shop) {
         try {
-            Object shopUpdate = shopService.findByShopId(id); //updateShop(shop, id);
+            Shop shopUpdate = shopService.findByShopId(id); //updateShop(shop, id);
             shopService.updateShop(shop, id);
             return "Updated: " + shopUpdate;
         } catch (ShopNotFoundException exception) {
