@@ -32,15 +32,9 @@ public class ShopService {
     }
 
     public Object findByShopId(long id) {
-        Optional<Shop> findProductById = shopRepository.findById(id);
-        return findProductById
+        return shopRepository.findById(id)
                 .orElseThrow(null);
     }
-
-//    public Shop findByShopId(Long id) {
-//        isExists(id);
-//        return shopRepository.findById(id).orElse(null);
-//    }
 
     public void deleteShop(Long id) {
         shopRepository.deleteById(id);
@@ -67,10 +61,5 @@ public class ShopService {
         shop.setStreet(shopDto.getStreet());
         shop.setSiteAvail(shopDto.isSiteAvail());
         return shop;
-    }
-
-    public void isExists(Long id) {
-        boolean isExist = shopRepository.existsById(id);
-        if (!isExist) throw new ShopNotFoundException("Shop \"id=" + id + "\" no found");
     }
 }
