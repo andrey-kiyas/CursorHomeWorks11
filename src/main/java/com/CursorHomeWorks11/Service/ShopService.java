@@ -32,12 +32,9 @@ public class ShopService {
     }
 
     public Object findByShopId(long id) {
-        try {
-            Optional<Shop> findProductById = shopRepository.findById(id);
-            return findProductById;
-        } catch (Exception e) {
-            return null;
-        }
+        Optional<Shop> findProductById = shopRepository.findById(id);
+        return findProductById
+                .orElseThrow(null);
     }
 
 //    public Shop findByShopId(Long id) {
