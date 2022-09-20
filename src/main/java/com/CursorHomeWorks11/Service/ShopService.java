@@ -6,8 +6,10 @@ import com.CursorHomeWorks11.Exception.ShopNotFoundException;
 import com.CursorHomeWorks11.Repository.ShopRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
@@ -29,10 +31,19 @@ public class ShopService {
         shopRepository.save(shop);
     }
 
-    public Shop findByShopId(Long id) {
-        isExists(id);
-        return shopRepository.findById(id).orElse(null);
+    public Object findByShopId(long id) {
+        try {
+            Optional<Shop> findProductById = shopRepository.findById(id);
+            return findProductById;
+        } catch (Exception e) {
+            return null;
+        }
     }
+
+//    public Shop findByShopId(Long id) {
+//        isExists(id);
+//        return shopRepository.findById(id).orElse(null);
+//    }
 
     public void deleteShop(Long id) {
         shopRepository.deleteById(id);
