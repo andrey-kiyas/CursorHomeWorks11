@@ -1,0 +1,26 @@
+Data for filling the "Shop" array with objects during testing (Postman):
+
+{
+    "id" : 1,
+    "city": "Kiev",
+    "street": "Shevchenko",
+    "name": "Popelushka",
+    "staff": 15,
+    "siteAvail": true
+}
+{
+    "id" : 2,
+    "city": "Dnepr",
+    "street": "Porevicha",
+    "name": "Slaadosti",
+    "staff": 25,
+    "siteAvail": true
+}
+{
+    "id" : 3,
+    "city": "Odessa",
+    "street": "Vitohina",
+    "name": "Vse po 5",
+    "staff": 7,
+    "siteAvail": false
+}
